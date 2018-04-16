@@ -1,0 +1,58 @@
+.site-header-logo {
+  width: 200px;
+  margin: 20px auto;
+}
+
+.menu-item.button {
+  padding: 0;
+  margin: 0;
+}
+
+.menu-item.is-active > a {
+  border-bottom: 1px solid $wp-gray-1;
+  color: #fff;
+}
+
+.top-bar .menu > li {
+  &.facebook-icon,
+  &.email-icon,
+  &.twitter-icon {
+    > a {
+      padding: 0;
+      &:hover {
+        background-color: transparent;
+        opacity: 0.8;
+      }
+    }
+  }
+}
+
+.mobile-menu {
+  width: 100%;
+}
+
+.facebook-icon,
+.email-icon,
+.twitter-icon {
+
+  a {
+    background-repeat: no-repeat;
+    background-size: 30px 30px;
+    text-indent: -9999px;
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    margin: 0 5px;
+  }
+}
+.facebook-icon a {
+  background-image: url('../images/icons/facebook.png');
+}
+
+.twitter-icon a {
+  background-image: url('../images/icons/twitter.png');
+}
+
+.email-icon a {
+  background-image: url('../images/webicons/webicon-mail-m.png');
+}

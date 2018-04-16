@@ -6,3 +6,24 @@
   border-radius: 3px;
   border: none;
 }
+
+.button {
+  border-radius: 10px;
+  background: $primary-color;
+  transition: background-color 0.25s linear;
+  font-weight: 600;
+  font-size: 16px;
+
+  &:hover {
+    background: $wp-dark-green;
+  }
+}
+
+.button.hollow {
+  transition: background 0.25s linear, color 0.25s linear;
+  &:hover {
+    background: $primary-color;
+    color: #fff;
+    border-color: $primary-color;
+  }
+}

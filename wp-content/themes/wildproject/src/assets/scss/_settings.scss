@@ -70,12 +70,34 @@
 $global-font-size: 100%;
 $global-width: rem-calc(1200);
 $global-lineheight: 1.5;
+// Wild Project Colors
+$wp-green: #289728;
+$wp-blue: #33658A;
+$wp-dark-green:  darken(#289728, 20%);
+$wp-gray-1: #E8E9EA; // light
+$wp-gray-2: #efefef;
+$wp-gray-3: #808080;
+$wp-gray-4: #4c5b61;
+$wp-gray-5: #3F4045; // dark
+
+// overrides of foundation theme
+$primary-color: $wp-green;
+$secondary-color: $wp-gray-3;
+$alert-color: #f0f;
+$success-color: $wp-blue;
+$warning-color: $wp-gray-3;
+$info-color: $wp-blue;
+$global-radius: 10px;
+$dark-gray: $wp-gray-5;
+$medium-gray: $wp-gray-3;
+$light-gray: $wp-gray-1;
+
 $foundation-palette: (
-  primary: #1779ba,
-  secondary: #767676,
-  success: #3adb76,
-  warning: #ffae00,
-  alert: #cc4b37,
+  primary: $primary-color,
+  secondary: $secondary-color,
+  success: $success-color,
+  warning: $warning-color,
+  alert: $alert-color
 );
 $light-gray: #e6e6e6;
 $medium-gray: #cacaca;

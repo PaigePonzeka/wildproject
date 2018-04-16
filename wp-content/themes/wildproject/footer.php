@@ -9,12 +9,27 @@
  */
 ?>
 
-<footer class="footer">
-    <div class="footer-container">
-        <div class="footer-grid">
-            <?php dynamic_sidebar( 'footer-widgets' ); ?>
-        </div>
+<?php
+  $button = Array(
+    'show' => get_field('show_footer_cta', 'options'),
+    'message' => get_field('footer_cta_message', 'options'),
+    'cta_text' => get_field('footer_cta_text', 'options'),
+    'cta_url' => empty(get_field('footer_cta_url', 'options')) ? get_field('footer_cta_link', 'options'): get_field('footer_cta_url', 'options')
+  );
+?>
+<?php if (!(empty($button) && $button['show'])): ?>
+  <div class="module-button">
+    <div class="module-button-wrapper float-center">
+      <h5 class=""><?php echo $button['message']; ?></h5>
+      <a href="<?php echo $button['cta_url']; ?>" class="button"><?php echo $button['cta_text']; ?></a>
     </div>
+  </div>
+<?php endif; ?>
+
+<footer class="footer">
+  <div class="footer-container">
+    <small>2018 © <a href="http://ponzeka.com" target="_blank">Paige Ponzeka</a> & <i>The wild project</i></small>
+  </div>
 </footer>
 
 <?php if ( get_theme_mod( 'wpt_mobile_menu_layout' ) === 'offcanvas' ) : ?>
