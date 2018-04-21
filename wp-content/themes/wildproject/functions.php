@@ -14,6 +14,8 @@
  * @since FoundationPress 1.0.0
  */
 
+
+
 /** Various clean up functions */
 require_once( 'library/cleanup.php' );
 
@@ -57,3 +59,6 @@ require_once( 'library/responsive-images.php' );
 if( function_exists('acf_add_options_page') ) {
   acf_add_options_page();
 }
+
+// add Publisher Custom performance Type
+require_once( __DIR__ . '/includes/custom-posts.php');
