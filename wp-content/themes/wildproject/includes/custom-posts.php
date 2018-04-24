@@ -21,7 +21,7 @@
         'publicly_queryable' => true,
         'show_ui' => true,
         'show_in_menu' => true,
-        'menu_icon' => 'dashicons-portfolio',
+        'menu_icon' => 'dashicons-tickets-alt',
         'query_var' => true,
         'rewrite' => array( 'slug' => strtolower($name . 's'), 'with_front' => true ),
         'capability_type' => 'post',

@@ -1,30 +1,80 @@
 <?php
 /**
- * The default template for displaying content
- *
- * Used for both single and index/archive/search.
- *
- * @package FoundationPress
- * @since FoundationPress 1.0.0
+ * For displaying Single Performance Content
  */
 
-?>
+$prices = Array();
+// check if the repeater field has rows of data
+if( have_rows('ticket_prices') ):
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+  // loop through the rows of data
+  while ( have_rows('ticket_prices') ) : the_row();
+      array_push($prices, Array(
+        'price' => get_sub_field('price'),
+        'type' => get_sub_field('type')
+      ));
+    endwhile;
+endif;
+
+$performance = Array(
+  'title' => get_the_title(),
+  'description' => get_the_content(),
+  'pretitle' => get_field('pretitle'),
+  'subtitle' => get_field('subtitle'),
+  'start-date' => get_field('start_date'),
+  'end-date' => get_field('end_date'),
+  'cast' => get_field('cast'),
+  'ticket-url' => get_field('ticket_url'),
+  'prices' => $prices,
+  'image' => get_the_post_thumbnail()
+  );
+
+
+?>
+<article id="post-<?php the_ID(); ?>" class="performance-article">
   <header>
-  <?php
-    if ( is_single() ) {
-      the_title( '<h1 class="entry-title">', '</h1>' );
-    } else {
-      the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-    }
-  ?>
+    <h3><em><?php echo $performance['pretitle']; ?></em></h3>
+    <h1>
+      <?php echo $performance['title']; ?>
+    </h1>
+    <h3 class="subheader h5"><?php echo $performance['subtitle']; ?></h3>
   </header>
-  <div class="entry-content">
-    <?php the_content(); ?>
-    <?php edit_post_link( __( '(Edit)', 'foundationpress' ), '<span class="edit-link">', '</span>' ); ?>
+  <div class="grid-x">
+    <div class="cell medium-6 large-8">
+      <div class="entry-content performance-description">
+        <?php echo $performance['description']; ?>
+      </div>
+      <?php if (!empty($performance['prices'])):?>
+        Here
+        <ul class="performance-tickets">
+          <?php foreach($performance['prices'] as $ticket):?>
+            <li class="performance-ticket">
+              <?php echo $ticket['type']; ?>
+              <em>$<?php echo $ticket['price']; ?></em>
+            </li>
+          <?php endforeach; ?>
+        </ul>
+      <?php endif; ?>
+
+      <?php if (!empty($performance['ticket-url'])): ?>
+        <a class="button secondary" href="<?php echo $performance['ticket-url'];?>">Buy Tickets</a>
+      <?php endif; ?>
+
+    </div>
+    <div class="cell medium-6 large-4">
+      <div class="performance-image">
+        <?php echo $performance['image']; ?>
+      </div>
+    </div>
   </div>
+  <div class="grid-x performance-cast">
+    <div class="cell callout">
+      <?php echo $performance['cast']; ?>
+    </div>
+  </div>
+
   <footer>
+
     <?php
       wp_link_pages(
         array(
@@ -36,3 +86,4 @@
     <?php $tag = get_the_tags(); if ( $tag ) { ?><p><?php the_tags(); ?></p><?php } ?>
   </footer>
 </article>
+
