@@ -1,3 +1,26 @@
+.performance-header {
+  text-align: center;
+  padding-bottom: 30px;
+}
+
 .performance-cast {
   margin: 30px 0;
+}
+
+.performance-tickets {
+  margin: 30px 20px;
+}
+
+.ticket-container {
+  text-align: center;
+
+  a {
+    padding-left: 50px;
+    padding-right: 50px;
+    font-size: 20px;
+  }
+}
+
+.performance-container .main-content{
+  margin: 0 auto;
 }

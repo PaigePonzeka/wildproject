@@ -32,7 +32,7 @@ $performance = Array(
 
 ?>
 <article id="post-<?php the_ID(); ?>" class="performance-article">
-  <header>
+  <header class="performance-header">
     <h3><em><?php echo $performance['pretitle']; ?></em></h3>
     <h1>
       <?php echo $performance['title']; ?>
@@ -42,7 +42,7 @@ $performance = Array(
   <div class="grid-x">
     <div class="cell medium-6 large-8">
       <div class="entry-content performance-description">
-        <?php echo $performance['description']; ?>
+        <?php echo apply_filters('the_content', $performance['description']); ?>
       </div>
       <?php if (!empty($performance['prices'])):?>
         Here
@@ -50,14 +50,18 @@ $performance = Array(
           <?php foreach($performance['prices'] as $ticket):?>
             <li class="performance-ticket">
               <?php echo $ticket['type']; ?>
-              <em>$<?php echo $ticket['price']; ?></em>
+              <?php if (!empty($ticket['price'])): ?>
+                :<em>$<?php echo $ticket['price']; ?></em>
+              <?php endif; ?>
             </li>
           <?php endforeach; ?>
         </ul>
       <?php endif; ?>
 
       <?php if (!empty($performance['ticket-url'])): ?>
-        <a class="button secondary" href="<?php echo $performance['ticket-url'];?>">Buy Tickets</a>
+        <div class="ticket-container">
+          <a class="button secondary" href="<?php echo $performance['ticket-url'];?>">Buy Tickets</a>
+        </div>
       <?php endif; ?>
 
     </div>
@@ -67,14 +71,15 @@ $performance = Array(
       </div>
     </div>
   </div>
-  <div class="grid-x performance-cast">
-    <div class="cell callout">
-      <?php echo $performance['cast']; ?>
+  <?php if (!empty($performance['cast'])): ?>
+    <div class="grid-x performance-cast">
+      <div class="cell callout">
+        <?php echo $performance['cast']; ?>
+      </div>
     </div>
-  </div>
+  <?php endif; ?>
 
   <footer>
-
     <?php
       wp_link_pages(
         array(
