@@ -8,7 +8,7 @@ get_header(); ?>
 <div class="main-container">
   <div class="main-grid">
     <main class=class="main-content-full-width">
-      <h1>Performances</h1>
+      <h1>Galleries</h1>
       <div class="featured-items all-performances">
         <div class="cards-container">
           <?php if ( have_posts() ) : ?>

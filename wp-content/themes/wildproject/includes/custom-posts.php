@@ -1,13 +1,17 @@
 <?php
 
   function create_custom_performance() {
-    create_custom_post_type('Performance');
+    create_custom_post_type('Performance', 'dashicons-tickets-alt', '');
+    create_custom_post_type('Gallery', 'dashicons-format-gallery', 'Galleries');
   }
 
 
-  function create_custom_post_type($name) {
+  function create_custom_post_type($name, $icon, $plural) {
+    if (empty($plural)) {
+      $plural = $name . 's';
+    }
     $labels = array(
-      'name'  => $name.'s',
+      'name'  => $plural,
       'singular_name' => $name,
       'add_new' => 'Add New '. $name,
       'edit_item' => 'Edit ' . $name,
@@ -21,7 +25,7 @@
         'publicly_queryable' => true,
         'show_ui' => true,
         'show_in_menu' => true,
-        'menu_icon' => 'dashicons-tickets-alt',
+        'menu_icon' => $icon,
         'query_var' => true,
         'rewrite' => array( 'slug' => strtolower($name . 's'), 'with_front' => true ),
         'capability_type' => 'post',
