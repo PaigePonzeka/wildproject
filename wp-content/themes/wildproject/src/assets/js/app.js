@@ -9,3 +9,13 @@ import Foundation from 'foundation-sites';
 //import './lib/foundation-explicit-pieces';
 
 $(document).foundation();
+
+$(document).ready(function() {
+  var $socialBar = $('#share-bar');
+  if ($socialBar && $socialBar.length > 0) {
+    $socialBar.share({
+      'position': 'left'
+    });
+  }
+
+});

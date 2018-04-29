@@ -63,6 +63,9 @@
 @import "global/wp-admin";
 @import "global/wp-overrides";
 
+// vendor
+@import "vendor/jquery-social-share-bar";
+
 // Modules
 @import "modules/navigation";
 @import "modules/content";

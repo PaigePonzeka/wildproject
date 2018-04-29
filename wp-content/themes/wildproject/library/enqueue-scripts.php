@@ -65,6 +65,15 @@ if ( ! function_exists( 'foundationpress_scripts' ) ) :
 			wp_enqueue_script( 'comment-reply' );
 		}
 
+		if (is_singular('performance')) {
+			wp_enqueue_script( 'social-bar', get_stylesheet_directory_uri() . '/dist/assets/js/' . foundationpress_asset_path( 'social-bar.js' ), array( 'jquery' ), '2.10.4', true );
+					// add social share button
+			wp_enqueue_style( 'font-awesome', 'https://use.fontawesome.com/releases/v5.0.6/css/all.css', array(), '5.0.6', 'all' );
+		}
+
+
+
+
 	}
 
 	add_action( 'wp_enqueue_scripts', 'foundationpress_scripts' );
