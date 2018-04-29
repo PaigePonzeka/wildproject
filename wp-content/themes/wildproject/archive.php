@@ -15,8 +15,9 @@
  * @since FoundationPress 1.0.0
  */
 
-get_header(); ?>
-HERE
+get_header();
+echo get_post_type();
+?>
 <div class="main-container">
 	<div class="main-grid">
 		<main class="main-content">

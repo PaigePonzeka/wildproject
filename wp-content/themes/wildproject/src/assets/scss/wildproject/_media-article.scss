@@ -1,0 +1,21 @@
+.media-article {
+  padding: 30px;
+
+  .media-article-author {
+    text-transform: capitalize;
+    color: $wp-gray-3;
+  }
+
+  .media-article-link {
+    margin: 20px 0;
+    text-align: center;
+  }
+
+  .media-article-title {
+    padding: 20px 0;
+  }
+}
+
+.main-container.media_article-container .main-grid {
+  margin-top: 0;
+}
