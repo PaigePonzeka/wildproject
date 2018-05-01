@@ -14,13 +14,14 @@ get_header(); ?>
           <?php if ( have_posts() ) : ?>
             <?php while ( have_posts() ) : the_post();
               $item_image = get_the_post_thumbnail($post, 'medium');
-
               $item = Array(
                 'url' => get_permalink(),
                 'cta_text' => 'Learn More',
-                'description' => get_the_excerpt(),
+                //'description' => get_the_excerpt(),
                 'title' => get_the_title(),
-                'image' =>  $item_image
+                'image' =>  $item_image,
+                'start_date' => get_field('start_date'),
+                'end_date' => get_field('end_date')
               );
               include(locate_template('template-parts/featured-item.php'));
 
