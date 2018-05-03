@@ -1,0 +1,8 @@
+-%c8 -c8 -%k -%v -v -#p -%! -i -s0 -m -F "Mozilla/5.0 (X11;U; Linux i686; en-GB; rv:1.9.1) Gecko/20090624 Ubuntu/9.04 (jaunty) Firefox/3.5" -#L999999 http://thewildproject.com
+File generated automatically on Mon, 30 Apr 2018 22:30:20, do NOT edit
+
+To update a mirror, just launch httrack without any parameters
+The existing cache will be used (and modified)
+To have other options, retype all parameters and launch HTTrack
+To continue an interrupted mirror, just launch httrack without any parameters
+
