@@ -2,7 +2,9 @@
 /*
 Template Name: Archive Page
 */
-get_header(); ?>
+get_header();
+$archive_type = get_field('archive_type');
+?>
 
 <?php get_template_part( 'template-parts/featured-image' ); ?>
 <div class="main-container">
@@ -14,9 +16,7 @@ get_header(); ?>
         <?php get_template_part( 'template-parts/content', 'page' ); ?>
       <?php endwhile; ?>
       <?php
-        // Get all term ID's in a given taxonomy
-        $taxonomy = 'performance_year';
-        $taxonomy_terms = get_terms( $taxonomy, array(
+        $taxonomy_terms = get_terms( $archive_type, array(
             'hide_empty' => 0
         ) ); ?>
         <div class="grid-x grid-margin-x archive-list">

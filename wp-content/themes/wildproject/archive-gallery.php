@@ -29,6 +29,14 @@ get_header(); ?>
           <?php endif; ?>
         </div>
       </div>
+      <?php
+        $archive_page = get_page_by_path('Past Galleries');
+        $callout = Array(
+          'cta_text' => 'View Our Past Archives',
+          'url' => get_permalink($archive_page->ID)
+        );
+        include(locate_template('template-parts/callout.php'));
+      ?>
     </main>
   </div>
 </div>

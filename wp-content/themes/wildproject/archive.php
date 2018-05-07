@@ -16,6 +16,7 @@
  */
 
 get_header();
+echo 'archive';
 echo get_post_type();
 ?>
 <div class="main-container">
