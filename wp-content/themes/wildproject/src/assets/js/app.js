@@ -10,12 +10,3 @@ import Foundation from 'foundation-sites';
 
 $(document).foundation();
 
-$(document).ready(function() {
-  var $socialBar = $('#share-bar');
-  if ($socialBar && $socialBar.length > 0) {
-    $socialBar.share({
-      'position': 'left'
-    });
-  }
-
-});

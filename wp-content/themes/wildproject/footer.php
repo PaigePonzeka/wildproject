@@ -26,11 +26,6 @@
   </div>
 <?php endif; ?>
 
-
-<?php if( is_singular('performance') || is_singular('gallery')) : ?>
-  <div id="share-bar"></div>
-<?php endif; ?>
-
 <footer class="footer">
   <div class="footer-container">
     <small>2018 © <a href="http://ponzeka.com" target="_blank">Paige Ponzeka</a> & <i>The wild project</i></small>

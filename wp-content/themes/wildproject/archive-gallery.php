@@ -3,36 +3,38 @@
  * The template for displaying archive pages for the performance pages
  */
 
-get_header(); ?>
+get_header();
+$section_type = "gallery";
+$image = get_field('gallery_featured_image', 'options');
+
+$featured_image_text = "[" . wp_get_attachment_url( $image['ID'], 'featured-small' ) . " , small], [" .  wp_get_attachment_url( $image['ID'], 'featured-medium' ) . ", medium], [". wp_get_attachment_url( $image['ID'], 'featured-large' )  .", large], [" . wp_get_attachment_url( $image['ID'], 'featured-xlarge' )  .", xlarge]";
+$featured = Array(
+    'image' => $featured_image_text,
+    'title' => "Galleries"
+  );
+  include(locate_template('template-parts/featured-image.php'));
+?>
 
 <div class="main-container">
   <div class="main-grid">
-    <main class=class="main-content-full-width">
-      <h1>Galleries</h1>
-      <div class="featured-items all-performances">
-        <div class="cards-container">
-          <?php if ( have_posts() ) : ?>
-            <?php while ( have_posts() ) : the_post();
-              $item_image = get_the_post_thumbnail($post, 'medium');
+    <main class="main-content-full-width">
+      <?php
+        $section_title = 'Current Galleries';
+        $section_tax = 'current';
+        include(locate_template('template-parts/posts-section.php'));
+      ?>
 
-              $item = Array(
-                'url' => get_permalink(),
-                'cta_text' => 'Learn More',
-                'description' => get_the_excerpt(),
-                'title' => get_the_title(),
-                'image' =>  $item_image
-              );
-              include(locate_template('template-parts/featured-item.php'));
+      <?php
+        $section_title = 'Upcoming Galleries';
+        $section_tax = 'upcoming';
+        $button_type = "secondary";
+        include(locate_template('template-parts/posts-section.php'));
+      ?>
 
-            ?>
-            <?php endwhile; ?>
-          <?php endif; ?>
-        </div>
-      </div>
       <?php
         $archive_page = get_page_by_path('Past Galleries');
         $callout = Array(
-          'cta_text' => 'View Our Past Archives',
+          'cta_text' => 'View Our Past Galleries',
           'url' => get_permalink($archive_page->ID)
         );
         include(locate_template('template-parts/callout.php'));

@@ -1,55 +1,41 @@
 <?php
 /**
- * The template for displaying archive pages
- *
- * Used to display archive-type pages if nothing more specific matches a query.
- * For example, puts together date-based pages if no date.php file exists.
- *
- * If you'd like to further customize these archive views, you may create a
- * new template file for each one. For example, tag.php (Tag archives),
- * category.php (Category archives), author.php (Author archives), etc.
- *
- * @link https://codex.wordpress.org/Template_Hierarchy
- *
- * @package FoundationPress
- * @since FoundationPress 1.0.0
+ * The template for displaying archive pages for the performance pages
  */
 
 get_header();
-echo 'archive';
-echo get_post_type();
+$image = get_field('performance_featured_image', 'options');
+$featured_image_text = "";
+
+$featured = Array(
+    'image' => $featured_image_text,
+    'title' => "Archives"
+  );
+  include(locate_template('template-parts/featured-image.php'));
 ?>
+
 <div class="main-container">
-	<div class="main-grid">
-		<main class="main-content">
-		<?php if ( have_posts() ) : ?>
-
-			<?php /* Start the Loop */ ?>
-			<?php while ( have_posts() ) : the_post(); ?>
-				<?php get_template_part( 'template-parts/content', get_post_format() ); ?>
-			<?php endwhile; ?>
-
-			<?php else : ?>
-				<?php get_template_part( 'template-parts/content', 'none' ); ?>
-
-			<?php endif; // End have_posts() check. ?>
-
-			<?php /* Display navigation to next/previous pages when applicable */ ?>
-			<?php
-			if ( function_exists( 'foundationpress_pagination' ) ) :
-				foundationpress_pagination();
-			elseif ( is_paged() ) :
-			?>
-				<nav id="post-nav">
-					<div class="post-previous"><?php next_posts_link( __( '&larr; Older posts', 'foundationpress' ) ); ?></div>
-					<div class="post-next"><?php previous_posts_link( __( 'Newer posts &rarr;', 'foundationpress' ) ); ?></div>
-				</nav>
-			<?php endif; ?>
-
-		</main>
-		<?php get_sidebar(); ?>
-
-	</div>
+  <div class="main-grid">
+    <main class="main-content-full-width">
+      <div class="cards-container">
+        <?php foreach( $posts as $post ) :
+        setup_postdata($post);
+        $item_image = get_the_post_thumbnail($post, 'medium');
+          $item = Array(
+            'url' => get_permalink(),
+            'cta_text' => 'Learn More',
+            //'description' => get_the_excerpt(),
+            'title' => get_the_title(),
+            'image' =>  $item_image,
+            'start_date' => get_field('start_date'),
+            'end_date' => get_field('end_date')
+          );
+          include(locate_template('template-parts/featured-item.php'));
+        endforeach; ?>
+        <?php wp_reset_postdata(); ?>
+      </div>
+    </main>
+  </div>
 </div>
 
-<?php get_footer();
+<?php get_footer(); ?>

@@ -38,6 +38,16 @@ $performance = Array(
       <?php echo $performance['title']; ?>
     </h1>
     <h3 class="subheader h5"><?php echo $performance['subtitle']; ?></h3>
+    <?php if(!empty($performance['start-date'])): ?>
+      <h5 class="performance-date">
+        <?php echo $performance['start-date']; ?>
+      <?php if(!empty($performance['end-date'])): ?>
+        - <?php echo $performance['end-date']; ?>
+      <?php endif; ?>
+      </h5>
+    <?php endif; ?>
+    <?php include(locate_template('template-parts/social-share.php')); ?>
+
   </header>
   <div class="grid-x">
     <div class="cell medium-6 large-8">
@@ -45,7 +55,6 @@ $performance = Array(
         <?php echo apply_filters('the_content', $performance['description']); ?>
       </div>
       <?php if (!empty($performance['prices'])):?>
-        Here
         <ul class="performance-tickets">
           <?php foreach($performance['prices'] as $ticket):?>
             <li class="performance-ticket">
@@ -58,16 +67,16 @@ $performance = Array(
         </ul>
       <?php endif; ?>
 
-      <?php if (!empty($performance['ticket-url'])): ?>
-        <div class="ticket-container">
-          <a class="button secondary" href="<?php echo $performance['ticket-url'];?>">Buy Tickets</a>
-        </div>
-      <?php endif; ?>
+     <?php include(locate_template('template-parts/performance/ticket.php')); ?>
 
     </div>
     <div class="cell medium-6 large-4">
       <div class="performance-image">
         <?php echo $performance['image']; ?>
+      </div>
+      <div class="performance-sidebar-ticket">
+        <?php include(locate_template('template-parts/performance/ticket.php')); ?>
+
       </div>
     </div>
   </div>
