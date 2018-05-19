@@ -60,5 +60,12 @@ if( function_exists('acf_add_options_page') ) {
   acf_add_options_page();
 }
 
+function wpsites_query( $query ) {
+if ( $query->is_archive() && $query->is_main_query() && !is_admin() ) {
+        $query->set( 'posts_per_page', 200 );
+    }
+}
+add_action( 'pre_get_posts', 'wpsites_query' );
+
 // add Publisher Custom performance Type
 require_once( __DIR__ . '/includes/custom-posts.php');

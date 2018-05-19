@@ -9,7 +9,7 @@ $featured_image_text = "";
 
 $featured = Array(
     'image' => $featured_image_text,
-    'title' => "Archives"
+    'title' => get_queried_object()->name
   );
   include(locate_template('template-parts/featured-image.php'));
 ?>
@@ -30,6 +30,7 @@ $featured = Array(
             'start_date' => get_field('start_date'),
             'end_date' => get_field('end_date')
           );
+          $button_type = 'secondary';
           include(locate_template('template-parts/featured-item.php'));
         endforeach; ?>
         <?php wp_reset_postdata(); ?>

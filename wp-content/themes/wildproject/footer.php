@@ -28,6 +28,7 @@
 
 <footer class="footer">
   <div class="footer-container">
+    <div class="footer-social-container"><?php foundationpress_top_bar_l(); ?></div>
     <small>2018 © <a href="http://ponzeka.com" target="_blank">Paige Ponzeka</a> & <i>The wild project</i></small>
   </div>
 </footer>

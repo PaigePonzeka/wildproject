@@ -18,7 +18,7 @@ Template Name: Home
         <?php get_template_part( 'template-parts/content', 'page' ); ?>
       <?php endwhile; ?>
       <?php get_template_part( 'template-parts/featured-items'); ?>
-
+      <?php get_template_part( 'template-parts/image-module'); ?>
     </main>
   </div>
 </div>

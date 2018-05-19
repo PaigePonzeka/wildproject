@@ -18,6 +18,9 @@ $featured = Array(
 <div class="main-container">
   <div class="main-grid">
     <main class="main-content-full-width">
+      <div class="entry-content">
+        <?php the_field('gallery_mission_statement', 'options'); ?>
+      </div>
       <?php
         $section_title = 'Current Galleries';
         $section_tax = 'current';

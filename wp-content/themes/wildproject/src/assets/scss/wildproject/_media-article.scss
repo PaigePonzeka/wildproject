@@ -14,8 +14,18 @@
   .media-article-title {
     padding: 20px 0;
   }
+
+
 }
 
 .main-container.media_article-container .main-grid {
   margin-top: 0;
+}
+
+.media-object-section {
+  &:first-child {
+    padding-right: 0;
+    margin-right: 1rem;
+    overflow: hidden;
+  }
 }

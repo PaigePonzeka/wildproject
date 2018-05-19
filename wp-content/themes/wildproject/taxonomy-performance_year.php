@@ -36,6 +36,7 @@ get_header();
               'description' => mb_strimwidth(get_the_excerpt(),0,50),
               'url' => get_the_permalink()
             );
+            $button_type = "secondary";
             include(locate_template('template-parts/featured-item.php'));
           ?>
         <?php endwhile; ?>
