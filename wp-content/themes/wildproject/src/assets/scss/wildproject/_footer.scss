@@ -1,0 +1,21 @@
+.footer-social-container {
+  margin: 0 auto;
+
+  .menu {
+    justify-content: center;
+  }
+}
+
+.footer {
+  background: $wp-gray-5;
+  color: #fff;
+
+  a {
+    color: #fff;
+    text-decoration: underline;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
