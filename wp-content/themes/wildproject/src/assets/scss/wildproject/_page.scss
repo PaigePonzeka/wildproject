@@ -8,3 +8,21 @@
     text-align: center;
   }
 }
+
+.gallery {
+  clear: both;
+  text-align: center;
+
+  .gallery-item {
+    display: inline-block;
+    margin: 10px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

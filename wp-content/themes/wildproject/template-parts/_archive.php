@@ -1,6 +1,6 @@
 <?php
   $taxonomy_terms = get_terms( $archive_type, array(
-      'hide_empty' => 0
+      'hide_empty' => 1
   ) ); ?>
 
     <?php foreach($taxonomy_terms as $taxonomy_term):?>

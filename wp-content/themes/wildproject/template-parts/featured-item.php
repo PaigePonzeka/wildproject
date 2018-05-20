@@ -26,6 +26,6 @@
 
   </div>
   <?php if (!empty($item['cta_text']) && !empty($item['url'])): ?>
-      <a class="button <?php echo $button_type; ?>" href="<?php echo $item['url'];?>"><?php echo $item['cta_text'];?></a>
+      <a class="button <?php if(!empty($button_type)){ echo $button_type;} ?>" href="<?php echo $item['url'];?>"><?php echo $item['cta_text'];?></a>
     <?php endif; ?>
 </div>
