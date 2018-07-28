@@ -16,7 +16,8 @@
 .top-bar .menu > li {
   &.facebook-icon,
   &.email-icon,
-  &.twitter-icon {
+  &.twitter-icon,
+  &.instagram-icon {
     > a {
       padding: 0;
       &:hover {
@@ -26,6 +27,11 @@
     }
   }
 }
+.top-bar .menu > li:not(.menu-text) > a {
+  @media all and (max-width: 800px ){
+    padding: 1rem 10px;
+  }
+}
 
 .mobile-menu {
   width: 100%;
@@ -33,7 +39,8 @@
 
 .facebook-icon,
 .email-icon,
-.twitter-icon {
+.twitter-icon,
+.instagram-icon {
 
   a {
     background-repeat: no-repeat;
@@ -54,8 +61,14 @@
 }
 
 .email-icon a {
-  background-image: url('../images/webicons/webicon-mail-m.png');
+  background-image: url('../images/icons/email.png');
 }
+
+.instagram-icon a {
+  background-image: url('../images/icons/instagram.png');
+}
+
+
 
 .media-object-footer {
   clear: both;
