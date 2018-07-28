@@ -7,9 +7,10 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  background: $wp-green;
 
   .image-module-headline {
-    color: $wp-green;
+    color: #fff;
     font-weight: bold;
     text-align: right;
     -webkit-box-flex: 1;

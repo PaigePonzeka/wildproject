@@ -39,10 +39,10 @@
   <?php if (empty($no_title)):
   if ( !empty($featured['image']) ) : ?>
     <header class="featured-hero" role="banner" data-interchange="<?php echo $featured['image']; ?>">
-      <?php if(!empty($featured['title'])): ?>): ?>
-        <h1 class="entry-title"><?php echo $featured['title']; ?></h1>
-      <?php endif; ?>
     </header>
+    <?php if(!empty($featured['title'])): ?>
+        <div class="main-container"><h1 class="entry-title"><?php echo $featured['title']; ?></h1></div>
+    <?php endif; ?>
   <?php elseif (!empty($featured['title'])): ?>
     <header class="entry-header page-header">
       <h1 class="entry-title text-center"><?php echo $featured['title']; ?></h1>
