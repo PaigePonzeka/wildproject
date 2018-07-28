@@ -3,6 +3,11 @@
   margin: 20px auto;
 }
 
+.site-header {
+  position: relative;
+  z-index: 1000;
+}
+
 .menu-item.button {
   padding: 0;
   margin: 0;

@@ -18,7 +18,7 @@
   <header class="featured-hero slideshow">
     <div class="split-slideshow">
       <div class="slideshow">
-        <div class="slider">
+        <div class="slideshow-slider">
           <?php foreach($featured['slideshow_images'] as $fImage): ?>
             <div class="item">
               <img src="<?php echo $fImage['image']; ?>" />
