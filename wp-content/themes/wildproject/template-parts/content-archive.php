@@ -47,7 +47,6 @@ $performance = Array(
       </h5>
     <?php endif; ?>
     <?php include(locate_template('template-parts/social-share.php')); ?>
-
   </header>
   <div class="grid-x">
     <div class="cell large-12">
@@ -66,8 +65,6 @@ $performance = Array(
           <?php endforeach; ?>
         </ul>
       <?php endif; ?>
-
-     <?php include(locate_template('template-parts/performance/ticket.php')); ?>
 
       <div class="performance-image">
         <?php echo $performance['image']; ?>

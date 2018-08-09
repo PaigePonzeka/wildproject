@@ -1,9 +1,11 @@
 <?php
   global $post;
   $args = array(
-    'posts_per_page' => 6,
+    'posts_per_page' => 12,
     'category_name' => $section_tax,
-    'post_type' => $section_type
+    'post_type' => $section_type,
+    'orderby' => 'date',
+    'order' => 'ASC'
   );
   $posts = get_posts( $args );?>
 <?php if (!empty($posts)): ?>

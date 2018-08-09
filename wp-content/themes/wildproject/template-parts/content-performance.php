@@ -23,6 +23,7 @@
       </h5>
     <?php endif; ?>
     <?php include(locate_template('template-parts/social-share.php')); ?>
+    <div style="width: 400px; margin: 20px auto;"><?php include(locate_template('template-parts/performance/ticket.php')); ?></div>
 
   </header>
   <div class="grid-x">
@@ -43,7 +44,6 @@
         </ul>
       <?php endif; ?>
 
-     <?php include(locate_template('template-parts/performance/ticket.php')); ?>
 
     </div>
     <div class="cell medium-6 large-4">
