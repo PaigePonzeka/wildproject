@@ -9,8 +9,8 @@ $image = get_field('performance_featured_image', 'options');
 $featured_image_text = "[" . wp_get_attachment_url( $image['ID'], 'featured-small' ) . " , small], [" .  wp_get_attachment_url( $image['ID'], 'featured-medium' ) . ", medium], [". wp_get_attachment_url( $image['ID'], 'featured-large' )  .", large], [" . wp_get_attachment_url( $image['ID'], 'featured-xlarge' )  .", xlarge]";
 
 $featured = Array(
-    'image' => $featured_image_text,
-    'title' => "Performances"
+    'image' => '',
+    'title' => "Current Performance"
   );
   include(locate_template('template-parts/featured-image.php'));
 ?>
@@ -19,10 +19,8 @@ $featured = Array(
   <div class="main-grid">
     <main class="main-content-full-width">
       <?php
-        $section_title = 'Current Performances';
         $section_tax = 'current';
-
-        include(locate_template('template-parts/posts-section.php'));
+        include(locate_template('template-parts/full-posts-section.php'));
       ?>
 
       <?php

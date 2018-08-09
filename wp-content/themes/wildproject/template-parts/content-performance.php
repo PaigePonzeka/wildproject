@@ -2,42 +2,18 @@
 /**
  * For displaying Single Performance Content
  */
-
-$prices = Array();
-// check if the repeater field has rows of data
-if( have_rows('ticket_prices') ):
-
-  // loop through the rows of data
-  while ( have_rows('ticket_prices') ) : the_row();
-      array_push($prices, Array(
-        'price' => get_sub_field('price'),
-        'type' => get_sub_field('type')
-      ));
-    endwhile;
-endif;
-
-$performance = Array(
-  'title' => get_the_title(),
-  'description' => get_the_content(),
-  'pretitle' => get_field('pretitle'),
-  'subtitle' => get_field('subtitle'),
-  'start-date' => get_field('start_date'),
-  'end-date' => get_field('end_date'),
-  'cast' => get_field('cast'),
-  'ticket-url' => get_field('ticket_url'),
-  'prices' => $prices,
-  'image' => get_the_post_thumbnail()
-  );
-
-
-?>
-<article id="post-<?php the_ID(); ?>" class="performance-article">
+  $performance = get_the_performance(get_the_ID());
+  ?>
+  <article id="post-<?php the_ID(); ?>" class="performance-article">
   <header class="performance-header">
     <h3><em><?php echo $performance['pretitle']; ?></em></h3>
     <h1>
       <?php echo $performance['title']; ?>
     </h1>
     <h3 class="subheader h5"><?php echo $performance['subtitle']; ?></h3>
+    <?php if(is_singular('performance') || is_post_type_archive('performance')): ?>
+      <a href="https://web.ovationtix.com/trs/cal/621?sitePreference=normal" target="blank"><em>For All Performances see our full calendar</em></a>
+    <?php endif; ?>
     <?php if(!empty($performance['start-date'])): ?>
       <h5 class="performance-date">
         <?php echo $performance['start-date']; ?>
@@ -101,3 +77,5 @@ $performance = Array(
   </footer>
 </article>
 
+
+<?php ?>

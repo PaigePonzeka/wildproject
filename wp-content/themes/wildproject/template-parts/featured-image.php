@@ -37,7 +37,7 @@
   </header>
 <?php else: ?>
   <?php if (empty($no_title)):
-  if ( !empty($featured['image']) ) : ?>
+  if ( !empty($featured['image']) && has_post_thumbnail() ) : ?>
     <header class="featured-hero" role="banner" data-interchange="<?php echo $featured['image']; ?>">
     </header>
     <?php if(!empty($featured['title'])): ?>

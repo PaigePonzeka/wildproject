@@ -32,7 +32,7 @@ get_header();
           <?php
             $item = Array(
               'title' => get_the_title(),
-              'cta_text' => 'View Gallery',
+              'cta_text' => 'View Exhibit',
               'description' => mb_strimwidth(get_the_excerpt(),0,100),
               'url' => get_the_permalink()
             );

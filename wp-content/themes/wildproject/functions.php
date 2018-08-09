@@ -67,5 +67,40 @@ if ( $query->is_archive() && $query->is_main_query() && !is_admin() ) {
 }
 add_action( 'pre_get_posts', 'wpsites_query' );
 
+
+/**
+ * Gets performance post details from a postId
+ * @param  [integer] $postID the id of a given post
+ * @return [type]         [description]
+ */
+function get_the_performance($postID) {
+  $prices = Array();
+  // check if the repeater field has rows of data
+  if( have_rows('ticket_prices', $postID) ):
+
+    // loop through the rows of data
+    while ( have_rows('ticket_prices', $postID) ) : the_row();
+        array_push($prices, Array(
+          'price' => get_sub_field('price'),
+          'type' => get_sub_field('type')
+        ));
+      endwhile;
+  endif;
+  $performance = Array(
+    'title' => get_the_title($postID),
+    'description' => get_the_content($postID),
+    'pretitle' => get_field('pretitle', $postID),
+    'subtitle' => get_field('subtitle', $postID),
+    'start-date' => get_field('start_date', $postID),
+    'end-date' => get_field('end_date', $postID),
+    'cast' => get_field('cast', $postID),
+    'ticket-url' => get_field('ticket_url', $postID),
+    'prices' => $prices,
+    'image' => get_the_post_thumbnail($postID)
+  );
+
+  return $performance;
+}
+
 // add Publisher Custom performance Type
 require_once( __DIR__ . '/includes/custom-posts.php');

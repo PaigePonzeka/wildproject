@@ -43,9 +43,9 @@ var WPSlideshow = function() {
     arrows: false,
     infinite: true,
     dots: false,
-    speed: 1000,
+    speed: 500,
     autoplay: true,
-    autoplayspeed: 1000,
+    autoplayspeed: 500,
     cssEase: 'cubic-bezier(0.7, 0, 0.3, 1)'
   }).on('beforeChange', function(event, slick, currentSlide, nextSlide) {
 
