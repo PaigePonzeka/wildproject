@@ -12,8 +12,12 @@
             $item_image = wp_get_attachment_image( $image['id'], $size, true, ['class' =>'card-image']);
           }
 
+          $url = get_sub_field('cta_link');
+          if (empty($url)) {
+            $url = get_sub_field('cta_url');
+          }
           $item = Array(
-            'url' => empty(get_sub_field('cta_link') ? get_sub_field('cta_url') : get_sub_field('cta_text') ),
+            'url' => $url,
             'cta_text' => get_sub_field('cta_text'),
             'description' => get_sub_field('description'),
             'title' => get_sub_field('title'),
