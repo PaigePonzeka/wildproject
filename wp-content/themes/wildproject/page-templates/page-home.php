@@ -25,7 +25,7 @@ Template Name: Home
           <div class="ctct-inline-form" data-form-id="d84bde66-c156-4688-9e8b-14ee72c946e9"></div>
           <!-- End Constant Contact Inline Form Code -->
         </div>
-        <div class="cell medium-6 large-8">
+        <div class="cell medium-6 large-6">
           <div class="map-embed-container" style="overflow: hidden;">
             <h3>Find Us!</h3>
             <div class="map-container">
