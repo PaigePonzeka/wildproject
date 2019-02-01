@@ -42,5 +42,10 @@
 <script> var _ctct_m = "c7a12af6711bfe0f0af641e422846106"; </script>
 <script id="signupScript" src="//static.ctctcdn.com/js/signup-form-widget/current/signup-form-widget.min.js" async defer></script>
 <!-- End Constant Contact Active Forms -->
+<style>
+  .grecaptcha-badge {
+    display: none!important;
+  }
+</style>
 </body>
 </html>
